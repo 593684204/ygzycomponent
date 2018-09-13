@@ -15,9 +15,7 @@ class Loading extends React.Component{
    	    super(props);
     };
     static propTypes={
-        source:PropTypes.oneOfType(
-            [PropTypes.string,PropTypes.number]
-        )
+        source:PropTypes.oneOfType([PropTypes.shape({uri:PropTypes.string}),PropTypes.number])
     };
     render(){
         return(

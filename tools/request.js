@@ -2,7 +2,7 @@
  * autor:qiaozm 2018/05/10
  * 网络请求封装组件
  */
-import {timeout} from '../tools/constant';//常量组件
+import constant from '../tools/constant';//常量组件
 const codeMessage = {
     200: '服务器成功返回请求的数据。',
     201: '新建或修改数据成功。',
@@ -42,7 +42,7 @@ function checkStatus(response) {
  */
 export default function request(url, options) {
     const defaultOptions = {
-        timeout: timeout
+        timeout: constant.timeout
     };
     //options.body += '&versionType=' + RNBridgeModule.versionType + '&versionCode=' + RNBridgeModule.versionCode + '&bundleCode=' + RNBridgeModule.bundleCode + '&upPwsNum=';
     console.log(options);

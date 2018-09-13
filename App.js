@@ -9,7 +9,8 @@ import {
   Platform,
   StyleSheet,
   Text,
-  View
+  View,
+    Image
 } from 'react-native';
 import Alert from './components/Alert';
 import NetInfo from './components/NetInfo';
@@ -17,6 +18,7 @@ import Button from './components/Button';
 import Util from './tools/Util';
 import toast from './components/Toast';
 import Loading from './components/LoadIng';
+import CheckBox from './components/Checkbox';
 const instructions = Platform.select({
   ios: 'Press Cmd+R to reload,\n' +
     'Cmd+D or shake for dev menu',
@@ -25,6 +27,12 @@ const instructions = Platform.select({
 });
 
 export default class App extends Component {
+    constructor(props){
+        super(props);
+        this.state={
+            checkedCustom:false
+        };
+    }
     componentWillMount() {
        // console.warn(Platform.OS);
       //  Alert.show('标题','测试报错信息');
@@ -44,11 +52,16 @@ export default class App extends Component {
           fontStyle={{color:'#5e5a57',fontSize:12}}
           source={require("./resources/images/btn.png")}
           />
-        <Text style={styles.welcome}>
-          Welcome to React Native!
-        </Text>
+          <CheckBox
+              title='Custom123'
+              titleStyle={{color: '#8a6d3b', paddingLeft: 4}}
+              checkedIcon={<Image style={{width: 15, height: 15, tintColor: '#8a6d3b'}} source={require('./resources/icons/checked.png')} />}
+              uncheckedIcon={<Image style={{width: 15, height: 15, tintColor: '#8a6d3b'}} source={require('./resources/icons/unchecked.png')} />}
+              checked={this.state.checkedCustom}
+              onChange={checked => this.setState({checkedCustom: checked})}
+          />
         <Text style={styles.instructions}>
-          To get started, edit App.js
+            this.state.checkedCustom:{this.state.checkedCustom?'1':'2'}
         </Text>
         <Text style={styles.instructions}>
           {instructions}
