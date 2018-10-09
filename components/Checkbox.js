@@ -13,7 +13,7 @@ export default class Checkbox extends TouchableOpacity {
         ...TouchableOpacity.propTypes,
         checked:PropTypes.bool,
         defaultChecked:PropTypes.bool,
-        size:PropTypes.oneOfType(['lg','md','sm']),
+        size:PropTypes.oneOf(['lg','md','sm']),
         title:PropTypes.oneOfType([PropTypes.element,PropTypes.string,PropTypes.number]),
         titleStyle:Text.propTypes.style,
         checkedIcon:PropTypes.oneOfType([PropTypes.element,PropTypes.shape({uri:PropTypes.string}),PropTypes.number]),

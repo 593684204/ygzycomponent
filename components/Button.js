@@ -8,7 +8,7 @@ import {
     ImageBackground,
     TouchableHighlight,
     View,
-    Text
+    ViewPropTypes
 } from 'react-native';
 import PropTypes from 'prop-types';
 import Util from '../tools/Util';
@@ -22,7 +22,7 @@ export default class Button extends Component {
         source:PropTypes.oneOfType([PropTypes.shape({uri:PropTypes.string}),PropTypes.number]),
         text:PropTypes.string.isRequired,
         fontStyle:Text.propTypes.style,
-        style:View.propTypes.style
+        style:ViewPropTypes.style
     };
 
     render() {
