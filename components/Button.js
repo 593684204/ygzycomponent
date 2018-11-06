@@ -22,12 +22,16 @@ export default class Button extends Component {
         source:PropTypes.oneOfType([PropTypes.shape({uri:PropTypes.string}),PropTypes.number]),
         text:PropTypes.string.isRequired,
         fontStyle:Text.propTypes.style,
-        style:ViewPropTypes.style
+        style:ViewPropTypes.style,
+        onPress:PropTypes.func
+    };
+    myOnPress=()=>{
+        this.props.onPress!=null&&this.props.onPress();
     };
 
     render() {
         return (
-            <TouchableHighlight underlayColor="rgba(255,255,155,0)" style={this.props.style==null?{alignItems: 'center',justifyContent: 'center'}:this.props.style}>
+            <TouchableHighlight onPress={()=>this.myOnPress()} underlayColor="rgba(255,255,155,0)" style={this.props.style==null?{alignItems: 'center',justifyContent: 'center'}:this.props.style}>
                 {
                     Util.FuncIsNull(this.props.source)?
                         <ImageBackground underlayColor="rgba(255,255,155,0)" source={this.props.source} style={{width:'100%', height:'100%',justifyContent:'center',alignItems:'center'}}>
